@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Project Template</title>
+
+<style>
+/* ===== KEEPING YOUR ORIGINAL STYLES INTACT ===== */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #0e0e0e;
+  color: #eaeaea;
+  line-height: 1.6;
+}
+
+.container {
+  max-width: 900px;
+  margin: auto;
+  padding: 40px 20px;
+}
+
+h1 { font-size: 2.5rem; margin-bottom: 10px; }
+h2 {
+  font-size: 1.5rem;
+  margin-top: 40px;
+  border-bottom: 1px solid #333;
+  padding-left: 28px;
+  position: relative;
+}
+
+p { color: #cfcfcf; }
+
+.section { margin-top: 30px; }
+
+.results {
+  margin-top: 15px;
+  padding: 15px;
+  background: #1a1a1a;
+  border-radius: 8px;
+  border: 1px solid #2a2a2a;
+}
+
+details {
+  margin-top: 15px;
+  background: #151515;
+  border: 1px solid #2a2a2a;
+  border-radius: 8px;
+  padding: 10px;
+}
+
+summary { cursor: pointer; color: #9aaaff; }
+
+.controls {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 10px;
+}
+
+/* ===== COLLAPSE SYSTEM ===== */
+.section.collapsed > .collapsible-content { display: none; }
+.subsection.collapsed > .subsection-content { display: none; }
+.subsection.collapsed > .subsection-summary { display: none; }
+
+/* HEADERS */
+.section > h2,
+.subsection-header,
+.summary-header {
+  cursor: pointer;
+  position: relative;
+}
+
+/* ARROWS */
+.section > h2::before,
+.subsection-header::before,
+.summary-header::before {
+  content: "▸";
+  position: absolute;
+  left: 0;
+}
+
+.section > h2::before { transform: rotate(90deg); }
+.section.collapsed > h2::before { transform: rotate(0deg); }
+
+.subsection-header { padding-left: 28px; }
+.subsection { margin-left: 10px; border-left: 1px solid #2a2a2a; padding-left: 10px; }
+
+.summary-header {
+  padding-left: 20px;
+  color: #ffcc66;
+}
+
+.summary-header::before {
+  content: "▶";
+  position: absolute;
+  right: 4px;
+}
+
+.summary-header:not(.collapsed)::before { content: "▼"; }
+
+.summary-content { display: block; }
+.summary-header.collapsed + .summary-content { display: none; }
+
+/* DESKTOP */
+@media (min-width: 1024px) {
+  .container { max-width: 1200px; }
+  body { font-size: 18px; }
+}
+</style>
+</head>
+
+<body>
+<div class="container">
+
+<div style="margin-bottom:20px;">
+  <a href="https://shadyeggs.github.io/" style="color:#9aaaff; text-decoration:none;">
+    ← Back to Portfolio
+  </a>
+</div>
+
+<h1>[Project Title]</h1>
+<p style="color:#aaa;">By Alfred Rico</p>
+
+<div class="controls">
+  <button id="toggleBtn" onclick="toggleAll()">Expand all</button>
+</div>
+
+<h2>Problem Statement</h2>
+<div class="collapsible-content">
+  <p>[Text Here]</p>
+</div>
+
+<h2>Project Goal</h2>
+<div class="collapsible-content">
+  <p>[Text Here]</p>
+</div>
+
+<div class="section">
+<h2>Technical Implementation</h2>
+<div class="collapsible-content">
+
+<div class="subsection">
+<div class="subsection-header">Section</div>
+<div class="subsection-content">
+<p>[Text Here]</p>
+
+<details>
+<summary>View Code</summary>
+<pre>[Code Here]</pre>
+</details>
+
+<div class="results">
+<strong>Results:</strong>
+<p>[Results Here]</p>
+</div>
+</div>
+</div>
+
+<div class="subsection-summary">
+<div class="summary-header">Summary</div>
+<div class="summary-content">
+<p>[Text Here]</p>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="section">
+<h2 id="project-overview" style="padding-left:0; cursor:default;">Project Overview</h2>
+<div class="collapsible-content">
+<p>[Text Here]</p>
+</div>
+</div>
+
+<script>
+let expanded = false;
+
+function toggleAll() {
+  const sections = document.querySelectorAll(".section, .subsection");
+  const summaries = document.querySelectorAll(".summary-header");
+
+  expanded = !expanded;
+
+  sections.forEach(el => {
+    const header = el.querySelector(":scope > h2");
+    if (header && header.id === "project-overview") return;
+
+    el.classList.toggle("collapsed", !expanded);
+  });
+
+  summaries.forEach(el => {
+    el.classList.toggle("collapsed", !expanded);
+  });
+
+  document.getElementById("toggleBtn").textContent =
+    expanded ? "Collapse all" : "Expand all";
+}
+
+// CLICK EVENTS
+document.querySelectorAll(".section > h2").forEach(h => {
+  if (h.id === "project-overview") return;
+  h.addEventListener("click", () => {
+    h.parentElement.classList.toggle("collapsed");
+  });
+});
+
+document.querySelectorAll(".subsection-header").forEach(h => {
+  h.addEventListener("click", () => {
+    h.parentElement.classList.toggle("collapsed");
+  });
+});
+
+document.querySelectorAll(".summary-header").forEach(h => {
+  h.addEventListener("click", (e) => {
+    e.stopPropagation();
+    h.classList.toggle("collapsed");
+  });
+});
+
+// DEFAULT COLLAPSED
+document.querySelectorAll(".section, .subsection").forEach(el => {
+  const header = el.querySelector(":scope > h2");
+  if (header && header.id === "project-overview") return;
+  el.classList.add("collapsed");
+});
+
+document.querySelectorAll(".summary-header").forEach(el => {
+  el.classList.add("collapsed");
+});
+</script>
+
+<footer style="margin-top:40px; text-align:center; color:#777;">
+© 2026 Alfred Rico
+</footer>
+
+</div>
+</body>
+</html>
