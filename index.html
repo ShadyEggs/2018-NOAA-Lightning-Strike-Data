@@ -340,7 +340,10 @@ memory usage: 77.8+ MB
 </div>
 <div class="subsection-summary">
 <div class="summary-header">Summary</div>
-<div class="summary-content"><p>[Text Here]</p></div>
+<div class="summary-content"><p>Preliminary analysis using <code>.shape</code> reveals the dataset contains over 3.4 million observations across three variables, representing a large-scale, high-resolution record of lightning activity. </p></div>
+<p>While <code>head(5)</code> provides an initial view of the dataset structure, showing the presence of temporal data (<code>date</code>), strike counts (<code>number_of_strikes</code>), and geographic coordinates (<code>center_point_geom</code>) providing clear time and spatial based data.</p>
+<p><code>info()</code> provides confirmation that the dataset is structurally consistent, providing further validation, with appropriat data types for the focus of this project. Data types (integer and object fields) are present with no immediate issues affecting usibility such as NULL factors. </p>
+<p>With the focus of this project on monthly lightning strikes, it appears the dataset is well suited particularly in regards to temporal and geographical trends in lightning activity.</p>
 </div>
 
 <!-- SECTION 3 -->
