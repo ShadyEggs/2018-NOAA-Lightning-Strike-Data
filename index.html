@@ -347,33 +347,52 @@ memory usage: 77.8+ MB
 
 <p><code>info()</code> provides confirmation that the dataset is structurally consistent, providing further validation, with appropriat data types for the focus of this project. Data types (integer and object fields) are present with no immediate issues affecting usibility such as NULL factors.</p>
 
-<p>With the focus of this project on monthly lightning strikes, it appears the dataset is consistent particularly in regards to temporal and geographical trends in lightning activity.</p>
+<p>With the focus of this project on monthly lightning strikes, it appears the dataset is well suited particularly in regards to temporal and geographical trends in lightning activity.</p>
 </div>
 </div>
 
 <!-- SECTION 3 -->
 <div class="subsection">
-<div class="subsection-header">Data Preparation</div>
+<div class="subsection-header">Feature Engineering</div>
 <div class="subsection-content">
-<p>The <code>date</code> column is converted from string to DateTime format using <code>pd.to_datetime()</code> enabling time-based operations.</p>  
-  <p></p>
-  <p>A new <code>month</code> feature is extracted from the newly formatted DateTime column with the use of <code>.dt.month</code> enabling aggregated analysis.</p>
-  <details><summary>View Code</summary><pre>
-  # Convert date column to proper datetime format
-  df['date'] = pd.to_datetime(df['date'])
-  
-  # Create new 'month' column
-  df['month'] = df['dat'].dt.month
-  df.head()
-  </pre></details>
-<div class="results"><strong>Results:</strong><p>[Results Here]</p></div>
+<p>[Text Here]</p>
+<details><summary>View Code</summary><pre>import pandas as pd
+import numpy as np
+import datetime as dt
+import matplotlib.pyplot as plt</pre></details>
+
+<div class="results">
+  <strong>Results:</strong>
+
+  <p><strong>Data after datetime conversion and month feature extraction:</strong></p>
+
+  <div style="overflow-x:auto;">
+    <table class="df-table">
+      <thead>
+        <tr>
+          <th></th>
+          <th>date</th>
+          <th>number_of_strikes</th>
+          <th>center_point_geom</th>
+          <th>month</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>0</td><td>2018-01-03</td><td>194</td><td>POINT(-75 27)</td><td>1</td></tr>
+        <tr><td>1</td><td>2018-01-03</td><td>41</td><td>POINT(-78.4 29)</td><td>1</td></tr>
+        <tr><td>2</td><td>2018-01-03</td><td>33</td><td>POINT(-73.9 27)</td><td>1</td></tr>
+        <tr><td>3</td><td>2018-01-03</td><td>38</td><td>POINT(-73.8 27)</td><td>1</td></tr>
+        <tr><td>4</td><td>2018-01-03</td><td>92</td><td>POINT(-79 28)</td><td>1</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
 </div>
 </div>
 <div class="subsection-summary">
 <div class="summary-header">Summary</div>
-<div class="summary-content"><p><p>Data preparation begins with first examining the <code>date</code> column, which was originally stored as a string or, object type. Considering the need for temporal data in a format that is suitable for analysis, this column is converted to proper datetime format using <code>pd.to_datetime()</code> allowing time-based operations and clearer feature extraction. </p>
-<p></p>
-<p>A new <code>month</code> feature is engineered from the DateTime column using <code>.dt.month</code>, returning a NumPy array containing the month of the DateTime column and, incidentally, allowing the aggregation of lightning strike activity at a monthly level. At this phase of the analysis the dataset has been enhanced at a temporal level that can support trend analysis and visualization.</p></p></div>
+<div class="summary-content"><p>[Text Here]</p></div>
 </div>
 
 <!-- SECTION 4 -->
@@ -385,7 +404,34 @@ memory usage: 77.8+ MB
 import numpy as np
 import datetime as dt
 import matplotlib.pyplot as plt</pre></details>
-<div class="results"><strong>Results:</strong><p>[Results Here]</p></div>
+
+<div class="results">
+  <strong>Results:</strong>
+
+  <p><strong>Data after datetime conversion and month feature extraction:</strong></p>
+
+  <div style="overflow-x:auto;">
+    <table class="df-table">
+      <thead>
+        <tr>
+          <th></th>
+          <th>date</th>
+          <th>number_of_strikes</th>
+          <th>center_point_geom</th>
+          <th>month</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>0</td><td>2018-01-03</td><td>194</td><td>POINT(-75 27)</td><td>1</td></tr>
+        <tr><td>1</td><td>2018-01-03</td><td>41</td><td>POINT(-78.4 29)</td><td>1</td></tr>
+        <tr><td>2</td><td>2018-01-03</td><td>33</td><td>POINT(-73.9 27)</td><td>1</td></tr>
+        <tr><td>3</td><td>2018-01-03</td><td>38</td><td>POINT(-73.8 27)</td><td>1</td></tr>
+        <tr><td>4</td><td>2018-01-03</td><td>92</td><td>POINT(-79 28)</td><td>1</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
 </div>
 </div>
 <div class="subsection-summary">
