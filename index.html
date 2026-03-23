@@ -415,7 +415,36 @@ memory usage: 77.8+ MB
 # Calculate days with most lightning strikes
 df.groupby(['date']).sum().sort_values('number_of_strikes', ascending=False).head(10)
 </pre></details>
-<div class="results"><strong>Results:</strong><p>[Results Here]</p></div>
+
+<div class="results">
+<strong>Results:</strong>
+
+<p><strong>Top 10 days with the highest number of lightning strikes (2018):</strong></p>
+
+<div style="overflow-x:auto;">
+<table class="df-table">
+<thead>
+<tr>
+<th>date</th>
+<th>number_of_strikes</th>
+</tr>
+</thead>
+<tbody>
+<tr><td>2018-08-29</td><td>1070457</td></tr>
+<tr><td>2018-08-17</td><td>969774</td></tr>
+<tr><td>2018-08-28</td><td>917199</td></tr>
+<tr><td>2018-08-27</td><td>824589</td></tr>
+<tr><td>2018-08-30</td><td>802170</td></tr>
+<tr><td>2018-08-19</td><td>786225</td></tr>
+<tr><td>2018-08-18</td><td>741180</td></tr>
+<tr><td>2018-08-16</td><td>734475</td></tr>
+<tr><td>2018-08-31</td><td>723624</td></tr>
+<tr><td>2018-08-15</td><td>673455</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+
 </div>
 </div>
 <div class="subsection-summary">
