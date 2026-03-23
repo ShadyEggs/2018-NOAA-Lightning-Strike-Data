@@ -207,6 +207,8 @@ pre {
 </style>
 
 <style>
+
+/* LIGHT MODE */
 body.light {
   background: #f5f5f5 !important;
   color: #111 !important;
@@ -227,9 +229,8 @@ body.light .df-table td {
   border-color: #ddd !important;
 }
 
-/* MOBILE ONLY — DOES NOT TOUCH DESKTOP */
+/* MOBILE ONLY */
 @media (max-width: 768px) {
-
   .container {
     padding: 20px 12px !important;
   }
@@ -244,11 +245,11 @@ body.light .df-table td {
 
   .df-table th,
   .df-table td {
-    padding: 6px !important;
     font-size: 0.85rem !important;
+    padding: 6px !important;
   }
-
 }
+
 </style>
 
 </head>
@@ -256,55 +257,47 @@ body.light .df-table td {
 <body>
 <div class="container">
 
-
-<div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:15px;">
-
+<div style="margin-bottom:20px;">
   <a href="https://shadyeggs.github.io/" style="color:#9aaaff; text-decoration:none;">
     ← Back to Portfolio
   </a>
 
-  <div style="display:flex; gap:15px; align-items:center;">
-
-    <!-- THEME TOGGLE -->
-    <span onclick="toggleTheme()" style="cursor:pointer;">🌓</span>
-
-    <!-- GITHUB ICON -->
-    <a href="https://github.com/ShadyEggs/2018-NOAA-Lightning-Strike-Data" target="_blank">
-      <svg height="22" width="22" viewBox="0 0 16 16" fill="currentColor">
-        <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29
-        6.53 5.47 7.59.4.07.55-.17.55-.38
-        0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49
-        -2.69-.94-.09-.23-.48-.94-.82-1.13
-        -.28-.15-.68-.52-.01-.53.63-.01
-        1.08.58 1.23.82.72 1.21 1.87.87
-        2.33.66.07-.52.28-.87.51-1.07
-        -1.78-.2-3.64-.89-3.64-3.95
-        0-.87.31-1.59.82-2.15-.08-.2
-        -.36-1.02.08-2.12 0 0 .67-.21
-        2.2.82a7.66 7.66 0 0 1 2-.27
-        7.66 7.66 0 0 1 2 .27c1.53-1.04
-        2.2-.82 2.2-.82.44 1.1.16 1.92
-        .08 2.12.51.56.82 1.27.82
-        2.15 0 3.07-1.87 3.75-3.65
-        3.95.29.25.54.73.54 1.48
-        0 1.07-.01 1.93-.01 2.2
-        0 .21.15.46.55.38A8.01 8.01
-        0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
-      </svg>
-    </a>
-
-  </div>
-</div>
-
-  <a href="https://shadyeggs.github.io/" style="color:#9aaaff; text-decoration:none;">
-    ← Back to Portfolio
+<div style="text-align:right; margin-top:10px; margin-bottom:10px;">
+  <a href="https://github.com/ShadyEggs/2018-NOAA-Lightning-Strike-Data" target="_blank">
+    <svg height="28" width="28" viewBox="0 0 16 16" fill="currentColor" style="opacity:0.9;">
+      <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29
+      6.53 5.47 7.59.4.07.55-.17.55-.38
+      0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49
+      -2.69-.94-.09-.23-.48-.94-.82-1.13
+      -.28-.15-.68-.52-.01-.53.63-.01
+      1.08.58 1.23.82.72 1.21 1.87.87
+      2.33.66.07-.52.28-.87.51-1.07
+      -1.78-.2-3.64-.89-3.64-3.95
+      0-.87.31-1.59.82-2.15-.08-.2
+      -.36-1.02.08-2.12 0 0 .67-.21
+      2.2.82a7.66 7.66 0 0 1 2-.27
+      7.66 7.66 0 0 1 2 .27c1.53-1.04
+      2.2-.82 2.2-.82.44 1.1.16 1.92
+      .08 2.12.51.56.82 1.27.82
+      2.15 0 3.07-1.87 3.75-3.65
+      3.95.29.25.54.73.54 1.48
+      0 1.07-.01 1.93-.01 2.2
+      0 .21.15.46.55.38A8.01 8.01
+      0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
+    </svg>
   </a>
 </div>
+
 
 <h1>Lightning Strike Analysis (2018): NOAA Data Exploration</h1>
 <p style="color:#aaa;">By Alfred Rico</p>
 
+
 <div class="controls">
+  <button id="toggleBtn" onclick="toggleAll()">Expand all</button>
+  <button onclick="toggleTheme()" style="margin-left:15px;">Light / Dark</button>
+</div>
+
   <button id="toggleBtn" onclick="toggleAll()">Expand all</button>
 </div>
 
