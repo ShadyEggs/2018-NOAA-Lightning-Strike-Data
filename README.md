@@ -1,6 +1,6 @@
 # Lightning Strike Analysis (2018): NOAA Data Exploration
 
-## For Recruiters
+## Project Overview
 This project analyzes more than 3.4 million NOAA lightning records from 2018 to identify daily and seasonal strike patterns.  
 The workflow demonstrates practical data cleaning, feature engineering, aggregation, and visualization in Python.  
 Results show clear summer concentration, with August as the peak month.
